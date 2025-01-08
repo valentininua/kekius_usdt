@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  #container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+
+  #containerInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  #rate {
+    font-size: 10px;
+    color: #007700;
+  }
+
+  #myUsdt{
+    font-size: 10px;
+    color: #007700;
+  }
+
+  #high24h, #low24h{
+    font-size: 10px;
+    color: #394f39;
+  }
+
+  #coin {
+    font-size: 10px;
+    color: #333;
+  }
+
+  
