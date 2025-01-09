@@ -1,12 +1,13 @@
 async function fetchKEKIUSUSDT() {
   const url = "https://api.gateio.ws/api/v4/spot/tickers?currency_pair=KEKIUS_USDT";
   const urlCoin = "https://valentin.in.ua/coin.json";
+  const noCacheParam = `?nocache=${new Date().getTime()}`;
   try {
     const response = await fetch(url);
     const data = await response.json(); 
-    const responseCoin = await fetch(urlCoin);
+    const responseCoin = await fetch(urlCoin+noCacheParam);
     const dataCoin = await responseCoin.json();
-    const myKekius = await parseFloat(dataCoin.KEKIUS_USDT);
+    const myKekius = await parseFloat(dataCoin.KEKIUS_USDT); 
 
     //возвращает массив объектов, выбираем первый
     const price = data[0]?.last || "Не найдено";
