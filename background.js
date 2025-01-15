@@ -1,5 +1,5 @@
 chrome.runtime.onInstalled.addListener(() => {
-    chrome.alarms.create("fetchGateData", { periodInMinutes: 1 }); //updates the price every minute
+    chrome.alarms.create("fetchGateData", { periodInMinutes: 0.1 }); //updates the price every minute
   });
   
   chrome.alarms.onAlarm.addListener((alarm) => {
@@ -18,6 +18,13 @@ chrome.runtime.onInstalled.addListener(() => {
       // Устанавливаем текст на значок
       chrome.action.setBadgeText({ text: parseFloat(price).toFixed(2) });
       chrome.action.setBadgeBackgroundColor({ color: "#4CAF50" }); // Зеленый фон
+
+
+      if (price <= 0.06) {
+        chrome.action.setBadgeText({ text: parseFloat(price).toFixed(2) });
+        chrome.action.setBadgeBackgroundColor({ color: "#bf3030" }); // крассный фон
+        //chrome.tabs.create({ url: "popup.html" }); // Открываем вкладку с попапом
+      }
     } catch (error) {
       console.error("Ошибка получения данных:", error);
     }
