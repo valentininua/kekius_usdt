@@ -17,13 +17,16 @@ chrome.runtime.onInstalled.addListener(() => {
       console.log(`Курс KEKIUS/USDT: $${parseFloat(price).toFixed(6)}`);
       // Устанавливаем текст на значок
       chrome.action.setBadgeText({ text: parseFloat(price).toFixed(2) });
-      chrome.action.setBadgeBackgroundColor({ color: "#4CAF50" }); // Зеленый фон
+      chrome.action.setBadgeBackgroundColor({ color: "#909190" }); //  фон
 
-
-      if (price <= 0.06) {
+      if (price <= 0.01) {
         chrome.action.setBadgeText({ text: parseFloat(price).toFixed(2) });
         chrome.action.setBadgeBackgroundColor({ color: "#bf3030" }); // крассный фон
         //chrome.tabs.create({ url: "popup.html" }); // Открываем вкладку с попапом
+      }
+      if (price >= 1) {
+        chrome.action.setBadgeText({ text: parseFloat(price).toFixed(2) });
+        chrome.action.setBadgeBackgroundColor({ color: "#57ff00" });
       }
     } catch (error) {
       console.error("Ошибка получения данных:", error);
